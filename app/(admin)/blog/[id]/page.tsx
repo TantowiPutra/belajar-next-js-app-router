@@ -3,6 +3,7 @@
 // SERVER COMPONENT
 import { useParams } from "next/navigation";
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 // export default async function Blog({ params } : {params : Promise <{ id: string }>}) {
 //     const id = (await params).id;
@@ -29,8 +30,6 @@ export default function Blog() {
     const params = useParams();
     const searchParams = useSearchParams();
     const query = Object.fromEntries(searchParams.entries());
-
-    console.log(query)
 
     return (
         <div>
