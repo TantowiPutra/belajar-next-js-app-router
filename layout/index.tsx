@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link";
+import { dataStore } from "@/store/datastore";
 /*
     Komponen ./layout/index.js menerima prop berupa children dari komponen induk, dan memberikan kembalian berupa komponen
     yang sudah disatukan dengan prop tersebut
@@ -9,6 +12,8 @@ import Link from "next/link";
 */
 
 export default function MainLayout({ children } : { children: React.ReactNode }) {
+    const { count } = dataStore();
+
     return (
         <div>
             <div className="flex flex-col h-screen">
@@ -27,6 +32,7 @@ export default function MainLayout({ children } : { children: React.ReactNode })
                 </header>
 
                 <main className="flex-1 container mx-auto p-4">
+                    <p>{`Count Zustrand: ${count}`}</p>
                     <div>{ children }</div>
                 </main>
 
